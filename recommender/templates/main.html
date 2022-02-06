@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Movie Recommender System{% endblock %}
+{% block js_include %}
+<script src="{{ url_for('static',filename='js/script.js') }}"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
+{% endblock %}
+
+
+{% block content %}
+
+<div style="width: 80%; margin: auto;text-align: center;">
+<div align="center">
+    <div class="btn-group" role="group" style="width: 100%;">
+        <button type="button" class="btn btn-secondary active" onclick="showTableWithAllMovies()" aria-haspopup="true" aria-expanded="false" style="width:50%"><font size="6">All Movies</font>
+        </button>
+        <button type="button" class="btn btn-secondary" onclick="recommendedMoviesClicked()" aria-haspopup="true" aria-expanded="false" style="width:50%"><font size="6">Recommended Movies</font>
+        </button>
+    </div>
+</div>
+<br>
+<div align="center">
+    <button type="button" class="btn btn-primary" onclick="getRecommendedMovies()" aria-haspopup="true" aria-expanded="false" style="width:100%" id="showRecommendedMoviesBtn"><font size="4">Show my recommended movies</font>
+    </button>
+</div>
+<br>
+<table id="moviesTable" class="display">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Genres</th>
+            <th>Avg. rating (0-5)</th>
+            <th>Total ratings</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        
+    </tbody>
+</table>
+</div>
+{% endblock %}

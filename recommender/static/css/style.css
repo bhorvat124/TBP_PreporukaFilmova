@@ -1,0 +1,30 @@
+body{
+    font-family: 'Nunito', sans-serif;
+}
+
+#heading{
+    padding-top: 2rem;
+    text-align: center;
+}
+
+button{
+    width: 5rem;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+form{
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+input{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+hr{
+    margin-top: 1.5rem;
+    margin-left:  15rem;
+    margin-right:  15rem;
+    color: grey;
+}

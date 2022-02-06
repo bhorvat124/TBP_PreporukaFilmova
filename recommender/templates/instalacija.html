@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Nunito:wght@300;400&family=Poppins:wght@300&family=Roboto:wght@300&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <title>Upute</title>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">
+            <h2>Home</h2>
+        </a>
+        <h2>Upute za instalaciju</h2>
+
+    </nav>
+
+    <section>
+        <h2>Python</h2>
+        <p>Pripremljeni programi su namijenjeni izvođenju u Windows okruženju na sustavu koji ima NVIDIA grafičku
+            karticu s CUDA podrškom. Kako bi izvođenje bilo moguće, potrebno je imati sljedeće: </p>
+        <ol>
+            <li>Python i potrebni moduli</li>
+            <li>CUDA ToolKit i NVCC kompajler</li>
+            <li>Nvidia grafičku karticu</li>
+        </ol>
+        <p>NVIDIA nudi Python Wheels za instalaciju CUDA-e putem pip-a, prvenstveno za korištenje CUDA-e s Pythonom. Ovi
+            su paketi namijenjeni za korištenje tijekom izvođenja i trenutno ne uključuju razvojne alate (mogu se
+            instalirati zasebno).</p>
+        <code>
+            <p>py -m pip install --upgrade setuptools pip wheel // nakon ovoga moguće je instalirati nvidia-pyindex modul</p>
+            <p>py -m pip install nvidia-pyindex </p>
+            <p>py -m pip install nvidia-cuda-runtime-cu11</p>
+        </code>
+        <h3>Moduli</h3>
+        <code>
+                <p>pip install opencv-python // Za instalaciju OpenCV, kako bi se omogućio prikaz slike i primjena mape boja</p>
+                <p>pip install numbaZa // Python kompajler koji omogućuje i korištenje CUDA-e</p>
+                <p>pip install numpy // Za instalaciju numpy, za matematičke izračune</p>
+            </code>
+        <p>Uz pomoć PowerShell-a se je potrebno se je pozicionirati unutar direktorija u kojem se nalaze .py datoteke te
+            naredbom python .\gpu_fractal.py pokrenuti program</p>
+    </section>
+    <hr class="solid">
+    <section>
+        <h2>C++</h2>
+        <p>Za C++ verziju koda potrebno je imate sljedeće:</p>
+        <ol>
+            <li>Visual Studio 2019 ili noviji</li>
+            <li>CUDA ToolKit i NVCC kompajler</li>
+            <li>Nvidia grafička kartica</li>
+            <li>CMake</li>
+        </ol>
+        <h3>OpenCV i CMake</h3>
+        <p>Potrebno je preuzeti OpenCV <a
+                href="https://sourceforge.net/projects/opencvlibrary/files/4.5.5/opencv-4.5.5-vc14_vc15.exe/download">ovdje</a>
+            i instalirati.
+        </p>
+        <p>Potrebno je preuzeti CMake <a href="https://cmake.org/download/">ovdje</a>
+            i instalirati.
+        </p>
+        <p>
+            Nakon instalacije potrebno je namjestiti <i>Enviroment variables.</i> Nalaze se u Control Panelu. Na
+            kartici Advanced, pod System variables nalazi se Path varijabla. Ovdje je potrebno specificirati putanju do
+            bin i lib direktorija koji se generiraju prilikom instalacije Open CV-a. Isto tako potrebno je specificirati
+            i dodatni putanju do CMake bin direktorija.
+        </p>
+        <p>Nakon toga potrebno je otvoriti PowerShell i napraviti sljedeće: <br>
+            Uz pomoć cd naredbe se je potrebno pozicionirati na direktorij u c++ direktorij (direktorij u kojem se
+            nalazi datoteka CMakeLists.txt i datoteke izvornog koda te direktorij include). <br>
+            Nakon toga je potrebno kreirati novi direktorij naziva build: mkdir build </p>
+        <p>Za kraj je potrebno kompajlirati datoteke i kreirati izvršnu datoteku:</p>
+
+
+        <code>
+            <p>
+                cmake.exe -S . -B .\build\ <br>
+                cmake.exe --build .\build\ --config Debug --target ALL_BUILD -j 14 --
+            </p>
+            </code>
+
+        <p>Kako bi se pokrenuo kompajlirani program, potrebno je otići u direktorij build/Debug/ u kojem je moguće
+            pronaći datoteku mandelbrotCUDA.exe, čijim se pokretanjem pokreće program</p>
+
+    </section>
+
+</body>
+
+</html>
